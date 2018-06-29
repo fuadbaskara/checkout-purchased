@@ -84,13 +84,13 @@
 
   .dropshipper-name-container {
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
     width: 100%;
   }
 
   .dropshipper-phone-container {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
     width: 100%;
   }
 
@@ -125,7 +125,7 @@
   }
 
   .form-textarea {
-    margin-left: 20px;
+    margin-left: 40px;
     width: 100%;
   }
 

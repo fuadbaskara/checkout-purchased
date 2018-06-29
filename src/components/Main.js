@@ -43,7 +43,9 @@ export default class Main extends Component {
       validatePaymentMethod: null
     };
     this.changeRadioState = this.changeRadioState.bind(this);
-    this.getDropShipperName = this.getDropShipperName.bind(this);
+    this.handleChangeDropShipperName = this.handleChangeDropShipperName.bind(
+      this
+    );
     this.getDropShipperPhone = this.getDropShipperPhone.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
@@ -65,7 +67,7 @@ export default class Main extends Component {
     this.showSubmitNotice = this.showSubmitNotice.bind(this);
   }
 
-  getDropShipperName(event) {
+  handleChangeDropShipperName(event) {
     let value = event.target.value;
     this.setState(() => {
       return {
@@ -124,6 +126,8 @@ export default class Main extends Component {
     });
     this.emailValidation(event.target.value);
   }
+
+  /* ----------Below is the validation method for Dropshipper Name*/
 
   dropshipperNameValidation(dropshipperName) {
     if (dropshipperName !== "" && dropshipperName.length > 3) {
@@ -272,62 +276,6 @@ export default class Main extends Component {
     }
   }
 
-  toggleRadioSelection(event) {
-    let value = event.target.value;
-    this.setState(() => {
-      return {
-        radioSelectedState: value
-      };
-    });
-  }
-
-  async toggleDeliveryAgency(event) {
-    let value = event.target.value;
-    if (value === "JNE") {
-      await this.setState(() => {
-        return {
-          deliveryAgency: value,
-          deliveryPrice: 15000,
-          deliveryEstimate: "2 Days",
-          radioWalletState: false,
-          radioBankState: true,
-          radioVirtualState: false,
-          validateAgency: true,
-          validatePaymentMethod: null,
-          radioSelectedState: null
-        };
-      });
-    } else if (value === "GoSend") {
-      await this.setState(() => {
-        return {
-          deliveryAgency: value,
-          deliveryPrice: 35000,
-          deliveryEstimate: "Half Day",
-          radioWalletState: false,
-          radioBankState: true,
-          radioVirtualState: true,
-          validateAgency: true,
-          validatePaymentMethod: null,
-          radioSelectedState: null
-        };
-      });
-    } else if (value === "SiCepat") {
-      await this.setState(() => {
-        return {
-          deliveryAgency: value,
-          deliveryPrice: 10000,
-          deliveryEstimate: "1 Day",
-          radioWalletState: false,
-          radioBankState: false,
-          radioVirtualState: false,
-          validateAgency: true,
-          validatePaymentMethod: null,
-          radioSelectedState: null
-        };
-      });
-    }
-  }
-
   async validatePaymentMethod() {
     if (
       this.state.radioSelectedState === "Wallet" ||
@@ -408,6 +356,62 @@ export default class Main extends Component {
           };
         });
       }
+    }
+  }
+
+  toggleRadioSelection(event) {
+    let value = event.target.value;
+    this.setState(() => {
+      return {
+        radioSelectedState: value
+      };
+    });
+  }
+
+  async toggleDeliveryAgency(event) {
+    let value = event.target.value;
+    if (value === "JNE") {
+      await this.setState(() => {
+        return {
+          deliveryAgency: value,
+          deliveryPrice: 15000,
+          deliveryEstimate: "2 Days",
+          radioWalletState: false,
+          radioBankState: true,
+          radioVirtualState: false,
+          validateAgency: true,
+          validatePaymentMethod: null,
+          radioSelectedState: null
+        };
+      });
+    } else if (value === "GoSend") {
+      await this.setState(() => {
+        return {
+          deliveryAgency: value,
+          deliveryPrice: 35000,
+          deliveryEstimate: "Half Day",
+          radioWalletState: false,
+          radioBankState: true,
+          radioVirtualState: true,
+          validateAgency: true,
+          validatePaymentMethod: null,
+          radioSelectedState: null
+        };
+      });
+    } else if (value === "SiCepat") {
+      await this.setState(() => {
+        return {
+          deliveryAgency: value,
+          deliveryPrice: 10000,
+          deliveryEstimate: "1 Day",
+          radioWalletState: false,
+          radioBankState: false,
+          radioVirtualState: false,
+          validateAgency: true,
+          validatePaymentMethod: null,
+          radioSelectedState: null
+        };
+      });
     }
   }
 
@@ -500,7 +504,7 @@ export default class Main extends Component {
               validateAddress={this.state.validateAddress}
               validateEmail={this.state.validateEmail}
               changeRadioState={this.changeRadioState}
-              getDropShipperName={this.getDropShipperName}
+              handleChangeDropShipperName={this.handleChangeDropShipperName}
               getDropShipperPhone={this.getDropShipperPhone}
               handleChangeName={this.handleChangeName}
               handleChangePhoneNumber={this.handleChangePhoneNumber}

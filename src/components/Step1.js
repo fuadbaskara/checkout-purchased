@@ -20,7 +20,7 @@ const StepOne = ({
   validateAddress,
   validateEmail,
   changeRadioState,
-  getDropShipperName,
+  handleChangeDropShipperName,
   getDropShipperPhone,
   handleChangeName,
   handleChangePhoneNumber,
@@ -49,7 +49,7 @@ const StepOne = ({
           placeholder="Dropshipper's Name"
           disabled={dropshipperNameState}
           value={dropshipperName}
-          onChange={getDropShipperName}
+          onChange={handleChangeDropShipperName}
         />
         <div>
           <small className="dropshipper-validation">
