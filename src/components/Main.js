@@ -40,8 +40,7 @@ export default class Main extends Component {
       deliveryEstimate: null,
       servicePrice: 2000,
       validateAgency: null,
-      validatePaymentMethod: null,
-      submitNotice: null
+      validatePaymentMethod: null
     };
     this.changeRadioState = this.changeRadioState.bind(this);
     this.getDropShipperName = this.getDropShipperName.bind(this);
@@ -455,8 +454,7 @@ export default class Main extends Component {
         deliveryEstimate: null,
         servicePrice: 2000,
         validateAgency: null,
-        validatePaymentMethod: null,
-        submitNotice: null
+        validatePaymentMethod: null
       };
     });
   }
@@ -479,10 +477,7 @@ export default class Main extends Component {
         <div className="page-title">
           <h1>Checkout Your Purchase</h1>
         </div>
-        <StepIndicator
-          stepState={this.state.stepState}
-          submitNotice={this.state.submitNotice}
-        />
+        <StepIndicator stepState={this.state.stepState} />
         <div className="form-content-container">
           {this.state.stepState === 1 ? (
             <StepOne
