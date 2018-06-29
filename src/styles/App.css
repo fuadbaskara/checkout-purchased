@@ -241,7 +241,6 @@ form {
   padding-top: 10px;
   width: 20%;
   float: left;
-  /* border: 1px solid orange; */
 }
 
 .form-textarea {
@@ -251,7 +250,6 @@ form {
   padding-bottom: 15px;
   width: 70%;
   float: left;
-  /* border: 1px solid orange; */
 }
 
 .valid {
@@ -291,7 +289,6 @@ form {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
-  /* cursor: pointer; */
   border: none;
 }
 
@@ -304,7 +301,6 @@ form {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
-  /* cursor: pointer; */
   border: none;
 }
 
