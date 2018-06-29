@@ -1,0 +1,100 @@
+.step2-information-container {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.step2-form-container {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.step2-information-name {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  width: 20%;
+  word-break: break-all;
+}
+
+.step2-information-phone {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  width: 15%;
+  word-break: break-all;
+}
+
+.step2-information-email {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  width: 20%;
+  word-break: break-all;
+}
+
+.step2-information-dropname {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  width: 20%;
+  word-break: break-all;
+}
+
+.step2-information-dropphone {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  width: 15%;
+  word-break: break-all;
+}
+
+.step2-information-address {
+  float: left;
+  width: 100%;
+  word-break: break-all;
+}
+
+.step2-address-container {
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.step2-service-button {
+  color: white;
+  transition: 0.5s;
+  background: rgb(254, 167, 0);
+  outline: none;
+  margin-left: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.step2-service-button:hover {
+  color: white;
+  transition: 0.5s;
+  background: rgb(254, 206, 0);
+  outline: none;
+  margin-left: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.step2-hr {
+  width: 83%;
+}
+
+.radio-container {
+  float: left;
+}
+
+.radio {
+  margin-top: 5px;
+}
