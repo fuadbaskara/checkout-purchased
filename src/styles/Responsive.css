@@ -137,7 +137,7 @@
 
 @media screen and (max-width: 425px) {
   textarea {
-    width: 300px;
+    width: 250px;
   }
 
   .buttons-container {
@@ -259,7 +259,7 @@
   }
 
   textarea {
-    width: 250px;
+    width: 210px;
   }
 
   form {
@@ -345,7 +345,7 @@
   }
 
   textarea {
-    width: 210px;
+    width: 180px;
   }
 
   .dropshipper-container {
