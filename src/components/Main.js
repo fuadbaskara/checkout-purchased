@@ -425,7 +425,38 @@ export default class Main extends Component {
   showSubmitNotice() {
     this.setState(() => {
       return {
-        submitNotice: true
+        stepState: 1,
+        radioState: false,
+        dropshipperNameState: true,
+        dropshipperPhoneState: true,
+        dropshipperName: "",
+        dropshipperPhone: "",
+        name: "",
+        phoneNumber: "",
+        address: "",
+        email: "",
+        phoneMinLength: 6,
+        phoneMaxLength: 20,
+        addressMaxLength: 120,
+        validateDropshipperName: null,
+        validateDropshipperPhone: null,
+        validateName: null,
+        validatePhone: null,
+        validateAddress: null,
+        validateEmail: null,
+        deliveryState: null,
+        paymentMethodState: null,
+        radioWalletState: true,
+        radioBankState: true,
+        radioVirtualState: true,
+        radioSelectedState: null,
+        deliveryAgency: null,
+        deliveryPrice: null,
+        deliveryEstimate: null,
+        servicePrice: 2000,
+        validateAgency: null,
+        validatePaymentMethod: null,
+        submitNotice: null
       };
     });
   }
@@ -448,7 +479,10 @@ export default class Main extends Component {
         <div className="page-title">
           <h1>Checkout Your Purchase</h1>
         </div>
-        <StepIndicator stepState={this.state.stepState} />
+        <StepIndicator
+          stepState={this.state.stepState}
+          submitNotice={this.state.submitNotice}
+        />
         <div className="form-content-container">
           {this.state.stepState === 1 ? (
             <StepOne
@@ -510,7 +544,6 @@ export default class Main extends Component {
               deliveryPrice={this.state.deliveryPrice}
               servicePrice={this.state.servicePrice}
               radioSelectedState={this.state.radioSelectedState}
-              submitNotice={this.state.submitNotice}
             />
           ) : (
             <div />
