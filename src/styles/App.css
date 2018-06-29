@@ -5,6 +5,16 @@ body {
   height: 1000px;
 }
 
+span p {
+  position: absolute;
+  margin-left: 0px;
+  font-size: 10px;
+}
+
+small {
+  position: absolute;
+}
+
 .container {
   margin-left: 100px;
   margin-right: 100px;
@@ -225,7 +235,8 @@ form {
 }
 
 .form-title {
-  margin-top: 10px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   padding-left: 30px;
   padding-top: 10px;
   width: 20%;
@@ -234,7 +245,8 @@ form {
 }
 
 .form-textarea {
-  margin-top: 10px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   padding-top: 10px;
   width: 70%;
   float: left;

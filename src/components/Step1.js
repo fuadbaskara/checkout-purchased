@@ -162,8 +162,10 @@ const StepOne = ({
             <small className="remainin-characters">
               {addressMaxLength - address.length} characters remaining
             </small>
+          </div>
+          <div>
             <span>
-              <small>
+              <p>
                 {validateAddress === null ? (
                   <span />
                 ) : validateAddress === true ? (
@@ -171,7 +173,7 @@ const StepOne = ({
                 ) : (
                   <span className="invalid">Please insert your Address..</span>
                 )}
-              </small>
+              </p>
             </span>
           </div>
         </div>
