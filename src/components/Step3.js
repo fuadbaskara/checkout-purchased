@@ -10,7 +10,8 @@ const StepThree = ({
   deliveryAgency,
   deliveryPrice,
   servicePrice,
-  radioSelectedState
+  radioSelectedState,
+  submitNotice
 }) => (
   <div className="information-form">
     <div>
@@ -140,6 +141,16 @@ const StepThree = ({
         </div>
       </div>
     </div>
+    {submitNotice === true ? (
+      <div className="submit-notice">
+        <h3>
+          {" "}
+          Thank You For Your Purchase, We will process your purchase immediately{" "}
+        </h3>
+      </div>
+    ) : (
+      <span />
+    )}
   </div>
 );
 

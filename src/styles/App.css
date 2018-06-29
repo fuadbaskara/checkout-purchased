@@ -34,15 +34,6 @@ body {
   float: left;
 }
 
-@media screen and (max-width: 320px) {
-  .checkout-steps-title {
-    width: 100%;
-  }
-  .checkout-steps-indicators {
-    width: 100%;
-  }
-}
-
 .checkout-steps h2 {
   margin-right: 20px;
   padding-top: 17px;
@@ -268,15 +259,6 @@ form {
   margin-top: 30px;
 }
 
-@media screen and (max-width: 320px) {
-  .form-title {
-    width: 100%;
-  }
-  .form-textarea {
-    width: 100%;
-  }
-}
-
 .buttons-container {
   margin-top: 20px;
   margin-right: 100px;
@@ -311,4 +293,9 @@ form {
   border-radius: 5px;
   cursor: pointer;
   border: none;
+}
+
+.submit-notice {
+  text-align: center;
+  color: rgb(233, 119, 0);
 }

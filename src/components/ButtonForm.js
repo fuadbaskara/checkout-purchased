@@ -1,15 +1,20 @@
 import React from "react";
 
-const ButtonForm = ({ stepState, backButton, validateCurrentForm }) => (
+const ButtonForm = ({
+  stepState,
+  backButton,
+  validateCurrentForm,
+  showSubmitNotice
+}) => (
   <div className="buttons-container">
     {stepState === 1 ? (
       <div />
     ) : stepState === 2 ? (
-      <button onClick={backButton} className="first-next-button">
+      <button onClick={backButton} className="first-next-button back-button">
         <b>{`<`} Back</b>
       </button>
     ) : stepState === 3 ? (
-      <button onClick={backButton} className="first-next-button">
+      <button onClick={backButton} className="first-next-button back-button">
         <b>{`<`} Back</b>
       </button>
     ) : (
@@ -27,7 +32,7 @@ const ButtonForm = ({ stepState, backButton, validateCurrentForm }) => (
       <span />
     )}
     {stepState === 3 ? (
-      <button className="first-next-button">
+      <button onClick={showSubmitNotice} className="first-next-button">
         <b>Finish</b>
       </button>
     ) : (

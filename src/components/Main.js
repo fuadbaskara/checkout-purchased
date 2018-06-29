@@ -40,7 +40,8 @@ export default class Main extends Component {
       deliveryEstimate: null,
       servicePrice: 2000,
       validateAgency: null,
-      validatePaymentMethod: null
+      validatePaymentMethod: null,
+      submitNotice: null
     };
     this.changeRadioState = this.changeRadioState.bind(this);
     this.getDropShipperName = this.getDropShipperName.bind(this);
@@ -62,6 +63,7 @@ export default class Main extends Component {
     this.toggleRadioSelection = this.toggleRadioSelection.bind(this);
     this.toggleDeliveryAgency = this.toggleDeliveryAgency.bind(this);
     this.validatePaymentMethod = this.validatePaymentMethod.bind(this);
+    this.showSubmitNotice = this.showSubmitNotice.bind(this);
   }
 
   getDropShipperName(event) {
@@ -124,15 +126,15 @@ export default class Main extends Component {
     this.emailValidation(event.target.value);
   }
 
-  async dropshipperNameValidation(dropshipperName) {
-    if ((await dropshipperName) !== "" && dropshipperName.length > 3) {
+  dropshipperNameValidation(dropshipperName) {
+    if (dropshipperName !== "" && dropshipperName.length > 3) {
       this.setState(() => {
         return {
           validateDropshipperName: true
         };
       });
     } else {
-      await this.setState(() => {
+      this.setState(() => {
         return {
           validateDropshipperName: false
         };
@@ -140,19 +142,19 @@ export default class Main extends Component {
     }
   }
 
-  async dropshipperPhoneValidation(dropshipperPhone) {
+  dropshipperPhoneValidation(dropshipperPhone) {
     var phoneRegExp = /\(?(?:\+62|62|0|[0-9])(?:\d{2,10})?\)?[ .-]?\d{2,10}[ .-]?\d{2,4}[ .-]?\d{2,10}/g;
     var charRegExp = /[a-zA-Z]/;
     for (var i = 0; i < dropshipperPhone.length; i++) {
-      if (await dropshipperPhone.match(charRegExp)) {
+      if (dropshipperPhone.match(charRegExp)) {
         this.setState(() => {
           return {
             validateDropshipperPhone: false
           };
         });
       } else if (
-        (await dropshipperPhone.match(phoneRegExp)) &&
-        (await !dropshipperPhone.match(charRegExp))
+        dropshipperPhone.match(phoneRegExp) &&
+        !dropshipperPhone.match(charRegExp)
       ) {
         this.setState(() => {
           return {
@@ -160,8 +162,8 @@ export default class Main extends Component {
           };
         });
       } else if (
-        (await !dropshipperPhone.match(phoneRegExp)) &&
-        (await dropshipperPhone.match(charRegExp))
+        !dropshipperPhone.match(phoneRegExp) &&
+        dropshipperPhone.match(charRegExp)
       ) {
         this.setState(() => {
           return {
@@ -169,7 +171,7 @@ export default class Main extends Component {
           };
         });
       } else {
-        await this.setState(() => {
+        this.setState(() => {
           return {
             validateDropshipperPhone: null
           };
@@ -178,15 +180,15 @@ export default class Main extends Component {
     }
   }
 
-  async nameValidation(name) {
-    if ((await name) !== "" && name.length > 3) {
+  nameValidation(name) {
+    if (name !== "" && name.length > 3) {
       this.setState(() => {
         return {
           validateName: true
         };
       });
     } else {
-      await this.setState(() => {
+      this.setState(() => {
         return {
           validateName: false
         };
@@ -194,19 +196,19 @@ export default class Main extends Component {
     }
   }
 
-  async phoneValidation(phoneNumber) {
+  phoneValidation(phoneNumber) {
     var phoneRegExp = /\(?(?:\+62|62|0|[0-9])(?:\d{2,10})?\)?[ .-]?\d{2,10}[ .-]?\d{2,4}[ .-]?\d{2,10}/g;
     var charRegExp = /[a-zA-Z]/;
     for (var i = 0; i < phoneNumber.length; i++) {
-      if (await phoneNumber.match(charRegExp)) {
+      if (phoneNumber.match(charRegExp)) {
         this.setState(() => {
           return {
             validatePhone: false
           };
         });
       } else if (
-        (await phoneNumber.match(phoneRegExp)) &&
-        (await !phoneNumber.match(charRegExp))
+        phoneNumber.match(phoneRegExp) &&
+        !phoneNumber.match(charRegExp)
       ) {
         this.setState(() => {
           return {
@@ -214,8 +216,8 @@ export default class Main extends Component {
           };
         });
       } else if (
-        (await !phoneNumber.match(phoneRegExp)) &&
-        (await phoneNumber.match(charRegExp))
+        !phoneNumber.match(phoneRegExp) &&
+        phoneNumber.match(charRegExp)
       ) {
         this.setState(() => {
           return {
@@ -223,7 +225,7 @@ export default class Main extends Component {
           };
         });
       } else {
-        await this.setState(() => {
+        this.setState(() => {
           return {
             validatePhone: null
           };
@@ -232,15 +234,15 @@ export default class Main extends Component {
     }
   }
 
-  async addressValidation(address) {
-    if ((await address) !== "" && address.length > 20) {
+  addressValidation(address) {
+    if (address !== "" && address.length > 20) {
       this.setState(() => {
         return {
           validateAddress: true
         };
       });
     } else {
-      await this.setState(() => {
+      this.setState(() => {
         return {
           validateAddress: false
         };
@@ -248,22 +250,22 @@ export default class Main extends Component {
     }
   }
 
-  async emailValidation(email) {
+  emailValidation(email) {
     var emailRegExp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    if (await email.match(emailRegExp)) {
+    if (email.match(emailRegExp)) {
       this.setState(() => {
         return {
           validateEmail: true
         };
       });
-    } else if (await !email.match(emailRegExp)) {
+    } else if (!email.match(emailRegExp)) {
       this.setState(() => {
         return {
           validateEmail: false
         };
       });
     } else {
-      await this.setState(() => {
+      this.setState(() => {
         return {
           validateEmail: null
         };
@@ -420,6 +422,14 @@ export default class Main extends Component {
     }
   }
 
+  showSubmitNotice() {
+    this.setState(() => {
+      return {
+        submitNotice: true
+      };
+    });
+  }
+
   changeRadioState() {
     this.setState(() => {
       return {
@@ -500,6 +510,7 @@ export default class Main extends Component {
               deliveryPrice={this.state.deliveryPrice}
               servicePrice={this.state.servicePrice}
               radioSelectedState={this.state.radioSelectedState}
+              submitNotice={this.state.submitNotice}
             />
           ) : (
             <div />
@@ -508,6 +519,7 @@ export default class Main extends Component {
             stepState={this.state.stepState}
             validateCurrentForm={this.validateCurrentForm}
             backButton={this.backButton}
+            showSubmitNotice={this.showSubmitNotice}
           />
         </div>
       </div>

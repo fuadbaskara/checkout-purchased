@@ -203,7 +203,6 @@ const StepOne = ({
           </div>
         </div>
       </div>
-      <hr />
     </form>
   </div>
 );
