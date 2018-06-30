@@ -16,7 +16,7 @@
     margin-right: 5px;
     float: left;
     width: 33.33%;
-    word-break: normal;
+    word-break: break-all;
   }
 
   .step2-information-email {
@@ -24,7 +24,7 @@
     margin-right: 5px;
     float: left;
     width: 33.33%;
-    word-break: normal;
+    word-break: break-all;
   }
 
   .step2-information-dropphone {
@@ -32,14 +32,14 @@
     margin-right: 5px;
     width: 100%;
     float: none;
-    word-break: normal;
+    word-break: break-all;
   }
   .step2-information-dropname {
     margin-left: 5px;
     margin-right: 5px;
     width: 100%;
     float: none;
-    word-break: normal;
+    word-break: break-all;
   }
 
   .form-title {
