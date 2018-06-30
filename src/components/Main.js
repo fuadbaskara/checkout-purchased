@@ -40,7 +40,8 @@ export default class Main extends Component {
       deliveryEstimate: null,
       servicePrice: 2000,
       validateAgency: null,
-      validatePaymentMethod: null
+      validatePaymentMethod: null,
+      formNotice: false
     };
     this.changeRadioState = this.changeRadioState.bind(this);
     this.handleChangeDropShipperName = this.handleChangeDropShipperName.bind(
@@ -309,11 +310,24 @@ export default class Main extends Component {
           ) {
             await this.setState(() => {
               return {
-                stepState: 2
+                stepState: 2,
+                formNotice: false
               };
             });
           }
         }
+      }
+      if (
+        this.state.validateName === null ||
+        this.state.validatePhone === null ||
+        this.state.validateAddress === null ||
+        this.state.validateEmail === null
+      ) {
+        this.setState(() => {
+          return {
+            formNotice: true
+          };
+        });
       }
     }
     if (this.state.stepState === 2) {
@@ -484,33 +498,45 @@ export default class Main extends Component {
         <StepIndicator stepState={this.state.stepState} />
         <div className="form-content-container">
           {this.state.stepState === 1 ? (
-            <StepOne
-              radioState={this.state.radioState}
-              dropshipperNameState={this.state.dropshipperNameState}
-              dropshipperPhoneState={this.state.dropshipperPhoneState}
-              dropshipperName={this.state.dropshipperName}
-              dropshipperPhone={this.state.dropshipperPhone}
-              name={this.state.name}
-              phoneNumber={this.state.phoneNumber}
-              address={this.state.address}
-              email={this.state.email}
-              phoneMinLength={this.state.phoneMinLength}
-              phoneMaxLength={this.state.phoneMaxLength}
-              addressMaxLength={this.state.addressMaxLength}
-              validateDropshipperName={this.state.validateDropshipperName}
-              validateDropshipperPhone={this.state.validateDropshipperPhone}
-              validateName={this.state.validateName}
-              validatePhone={this.state.validatePhone}
-              validateAddress={this.state.validateAddress}
-              validateEmail={this.state.validateEmail}
-              changeRadioState={this.changeRadioState}
-              handleChangeDropShipperName={this.handleChangeDropShipperName}
-              getDropShipperPhone={this.getDropShipperPhone}
-              handleChangeName={this.handleChangeName}
-              handleChangePhoneNumber={this.handleChangePhoneNumber}
-              handleChangeAddress={this.handleChangeAddress}
-              handleChangeEmail={this.handleChangeEmail}
-            />
+            <div>
+              <StepOne
+                radioState={this.state.radioState}
+                dropshipperNameState={this.state.dropshipperNameState}
+                dropshipperPhoneState={this.state.dropshipperPhoneState}
+                dropshipperName={this.state.dropshipperName}
+                dropshipperPhone={this.state.dropshipperPhone}
+                name={this.state.name}
+                phoneNumber={this.state.phoneNumber}
+                address={this.state.address}
+                email={this.state.email}
+                phoneMinLength={this.state.phoneMinLength}
+                phoneMaxLength={this.state.phoneMaxLength}
+                addressMaxLength={this.state.addressMaxLength}
+                validateDropshipperName={this.state.validateDropshipperName}
+                validateDropshipperPhone={this.state.validateDropshipperPhone}
+                validateName={this.state.validateName}
+                validatePhone={this.state.validatePhone}
+                validateAddress={this.state.validateAddress}
+                validateEmail={this.state.validateEmail}
+                changeRadioState={this.changeRadioState}
+                handleChangeDropShipperName={this.handleChangeDropShipperName}
+                getDropShipperPhone={this.getDropShipperPhone}
+                handleChangeName={this.handleChangeName}
+                handleChangePhoneNumber={this.handleChangePhoneNumber}
+                handleChangeAddress={this.handleChangeAddress}
+                handleChangeEmail={this.handleChangeEmail}
+              />
+              {this.state.formNotice === true ? (
+                <div className="form-notice">
+                  <p>
+                    Please at least fill your Name, Phone number, Address and
+                    E-mail
+                  </p>
+                </div>
+              ) : (
+                <div />
+              )}
+            </div>
           ) : this.state.stepState === 2 ? (
             <StepTwo
               name={this.state.name}
