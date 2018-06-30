@@ -33,11 +33,9 @@ const ButtonForm = ({
       <span />
     )}
     {stepState === 3 ? (
-      <Link to="/checkout-details">
-        <button onClick={showSubmitNotice} className="first-next-button">
-          <b>Finish</b>
-        </button>
-      </Link>
+      <button onClick={showSubmitNotice} className="first-next-button">
+        <b>Finish</b>
+      </button>
     ) : (
       <div />
     )}
