@@ -21,6 +21,7 @@ small {
 }
 
 .form-notice {
+  border-radius: 8px;
   border: solid red;
   text-align: center;
   font-size: 12px;
