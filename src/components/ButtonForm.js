@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ButtonForm = ({
   stepState,
@@ -32,9 +33,11 @@ const ButtonForm = ({
       <span />
     )}
     {stepState === 3 ? (
-      <button onClick={showSubmitNotice} className="first-next-button">
-        <b>Finish</b>
-      </button>
+      <Link to="/checkout-details">
+        <button onClick={showSubmitNotice} className="first-next-button">
+          <b>Finish</b>
+        </button>
+      </Link>
     ) : (
       <div />
     )}

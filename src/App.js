@@ -5,7 +5,7 @@ import "./styles/Responsive.css";
 import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Step1 from "./components/Main";
+import Main from "./components/Main";
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
         <Router>
           <ScrollToTop>
             <Switch>
-              <Route exact path="/" component={Step1} />
+              <Route exact path="/" component={Main} />
             </Switch>
           </ScrollToTop>
         </Router>
