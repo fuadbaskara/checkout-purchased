@@ -2,7 +2,7 @@
   "name": "jakmall-checkout",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fuadbaskara.github.io/checkout-purchased",
+  "homepage": "https://fuadbaskara.github.io/checkout-purchased/",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.4.1",
