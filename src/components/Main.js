@@ -310,7 +310,7 @@ export default class Main extends Component {
           ) {
             await this.setState(() => {
               return {
-                stepState: 2,
+                stepState: this.state.stepState + 1,
                 formNotice: false
               };
             });
@@ -329,8 +329,7 @@ export default class Main extends Component {
           };
         });
       }
-    }
-    if (this.state.stepState === 2) {
+    } else if (this.state.stepState === 2) {
       if (
         this.state.validateAgency === true &&
         this.state.paymentMethodState === true &&
@@ -338,7 +337,7 @@ export default class Main extends Component {
       ) {
         this.setState(() => {
           return {
-            stepState: 3
+            stepState: this.state.stepState + 1
           };
         });
       }
@@ -538,25 +537,34 @@ export default class Main extends Component {
               )}
             </div>
           ) : this.state.stepState === 2 ? (
-            <StepTwo
-              name={this.state.name}
-              phoneNumber={this.state.phoneNumber}
-              email={this.state.email}
-              dropshipperName={this.state.dropshipperName}
-              dropshipperPhone={this.state.dropshipperPhone}
-              address={this.state.address}
-              toggleDeliveryAgency={this.toggleDeliveryAgency}
-              validateAgency={this.state.validateAgency}
-              deliveryAgency={this.state.deliveryAgency}
-              deliveryPrice={this.state.deliveryPrice}
-              deliveryEstimate={this.state.deliveryEstimate}
-              radioSelectedState={this.state.radioSelectedState}
-              toggleRadioSelection={this.toggleRadioSelection}
-              radioWalletStat={this.state.radioWalletStat}
-              radioBankState={this.state.radioBankState}
-              radioVirtualState={this.state.radioVirtualState}
-              paymentMethodState={this.state.paymentMethodState}
-            />
+            <div>
+              <StepTwo
+                name={this.state.name}
+                phoneNumber={this.state.phoneNumber}
+                email={this.state.email}
+                dropshipperName={this.state.dropshipperName}
+                dropshipperPhone={this.state.dropshipperPhone}
+                address={this.state.address}
+                toggleDeliveryAgency={this.toggleDeliveryAgency}
+                validateAgency={this.state.validateAgency}
+                deliveryAgency={this.state.deliveryAgency}
+                deliveryPrice={this.state.deliveryPrice}
+                deliveryEstimate={this.state.deliveryEstimate}
+                radioSelectedState={this.state.radioSelectedState}
+                toggleRadioSelection={this.toggleRadioSelection}
+                radioWalletStat={this.state.radioWalletStat}
+                radioBankState={this.state.radioBankState}
+                radioVirtualState={this.state.radioVirtualState}
+                paymentMethodState={this.state.paymentMethodState}
+              />
+              {this.state.formNotice === true ? (
+                <div className="form-notice">
+                  <p>Please select your delivery agency and payment method..</p>
+                </div>
+              ) : (
+                <div />
+              )}
+            </div>
           ) : this.state.stepState === 3 ? (
             <StepThree
               name={this.state.name}
