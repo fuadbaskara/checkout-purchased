@@ -34,7 +34,7 @@ export default class Main extends Component {
       radioWalletState: true,
       radioBankState: true,
       radioVirtualState: true,
-      radioSelectedState: null,
+      radioSelectedState: "Wallet",
       deliveryAgency: null,
       deliveryPrice: null,
       deliveryEstimate: null,
@@ -277,13 +277,13 @@ export default class Main extends Component {
     }
   }
 
-  async validatePaymentMethod() {
+  validatePaymentMethod() {
     if (
       this.state.radioSelectedState === "Wallet" ||
       this.state.radioSelectedState === "Bank Transfer" ||
       this.state.radioSelectedState === "Virtual Account"
     ) {
-      await this.setState(() => {
+      this.setState(() => {
         return {
           paymentMethodState: !this.state.paymentMethodState
         };
@@ -340,8 +340,7 @@ export default class Main extends Component {
             stepState: this.state.stepState + 1
           };
         });
-      }
-      if (
+      } else if (
         this.state.validateAgency === null &&
         this.state.paymentMethodState === null &&
         this.state.radioSelectedState === null
@@ -354,18 +353,22 @@ export default class Main extends Component {
             };
           });
         }
-      }
-      if (this.state.validateAgency === null) {
+      } else if (this.state.validateAgency === null) {
         this.setState(() => {
           return {
             validateAgency: false
           };
         });
-      }
-      if (this.state.paymentMethodState === null) {
+      } else if (this.state.paymentMethodState === null) {
         this.setState(() => {
           return {
             paymentMethodState: false
+          };
+        });
+      } else if (this.state.radioSelectedState === true) {
+        this.setState(() => {
+          return {
+            paymentMethodState: true
           };
         });
       }
@@ -383,6 +386,7 @@ export default class Main extends Component {
 
   async toggleDeliveryAgency(event) {
     let value = event.target.value;
+    console.log(value);
     if (value === "JNE") {
       await this.setState(() => {
         return {
@@ -489,6 +493,7 @@ export default class Main extends Component {
   }
 
   render() {
+    console.log(this.state.radioSelectedState);
     return (
       <div className="container">
         <div className="page-title">

@@ -195,9 +195,7 @@ const StepTwo = ({
                 <small>
                   {paymentMethodState === null ? (
                     <span />
-                  ) : radioSelectedState === "Wallet" ||
-                  radioSelectedState === "Bank Transfer" ||
-                  radioSelectedState === "Virtual Account" ? (
+                  ) : radioSelectedState ? (
                     <span className="valid">
                       {radioSelectedState} is Selected..
                     </span>
