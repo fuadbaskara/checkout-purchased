@@ -34,7 +34,7 @@ export default class Main extends Component {
       radioWalletState: true,
       radioBankState: true,
       radioVirtualState: true,
-      radioSelectedState: "Wallet",
+      radioSelectedState: null,
       deliveryAgency: null,
       deliveryPrice: null,
       deliveryEstimate: null,
@@ -379,7 +379,8 @@ export default class Main extends Component {
     let value = event.target.value;
     this.setState(() => {
       return {
-        radioSelectedState: value
+        radioSelectedState: value,
+        paymentMethodState: true
       };
     });
   }
