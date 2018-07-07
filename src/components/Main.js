@@ -158,7 +158,8 @@ export default class Main extends Component {
         });
       } else if (
         dropshipperPhone.match(phoneRegExp) &&
-        !dropshipperPhone.match(charRegExp)
+        !dropshipperPhone.match(charRegExp) &&
+        dropshipperPhone.length >= 6
       ) {
         this.setState(() => {
           return {
